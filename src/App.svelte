@@ -27,9 +27,14 @@ import FeedbackForm from './components/FeedbackForm.svelte'
 		let id=event.detail;
 		feedback=feedback.filter(item=> item.id!=id)
 	}
+
+	function handleAddFeedback(event){
+		let data=event.detail;
+		feedback=[...feedback,data]
+	}
 </script>
 <main class="container">
-	<FeedbackForm />
+	<FeedbackForm on:new-feedback={handleAddFeedback} />
 	<FeedbackStats {count} {average}></FeedbackStats>
 	<FeedbackList {feedback} on:delete-feedback={handleDelete} />
 </main>

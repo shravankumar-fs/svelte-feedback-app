@@ -18,7 +18,7 @@
 <ul class="rating">
     {#each ratings as rating}
     <li>
-        <input type="radio" id="num{rating}" name="rating" value={rating} on:change={onChange} checked={selected==={rating}} />
+        <input type="radio" id="num{rating}" name="rating" value={rating} on:change={onChange} checked={selected===rating} />
         <label for="num{rating}">{rating}</label>
       </li>
     {/each}
