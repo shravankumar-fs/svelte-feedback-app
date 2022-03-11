@@ -30,7 +30,7 @@ import FeedbackForm from './components/FeedbackForm.svelte'
 
 	function handleAddFeedback(event){
 		let data=event.detail;
-		feedback=[...feedback,data]
+		feedback=[data,...feedback]
 	}
 </script>
 <main class="container">
