@@ -3,13 +3,13 @@
     import Button from './Button.svelte'
     import RatingSelect from './RatingSelect.svelte'
     import {v4 as uuidv4} from 'uuid';
-    import {createEventDispatcher} from 'svelte';
+    import {FeedbackStore} from '../stores'
 
     let btnDisabled=true;
     let text='';
     let message;
     let min=10;
-  let rating=10
+    let rating=10
 
     function handleInput(){
         if(text.trim().length<=min){
@@ -22,7 +22,6 @@
         }
     }
 
-    const dispatch=createEventDispatcher();
     const handleSelect = e=> rating=e.detail;
 
     const handleSubmit=()=>{
@@ -32,7 +31,9 @@
           text,
           rating:+rating,
         }
-        dispatch('new-feedback',newFeedback)
+        FeedbackStore.update((currentFeedback)=>{
+          return [newFeedback,...currentFeedback]
+        })
         text=``
       }
       

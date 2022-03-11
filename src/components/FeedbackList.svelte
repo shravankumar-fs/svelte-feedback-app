@@ -5,24 +5,24 @@
   import {FeedbackStore} from '../stores'
   
   
-  let feedback=[]
+  // let feedback=[]
 
-  const unsubscribe=FeedbackStore.subscribe((data)=>feedback=data)
+  // const unsubscribe=FeedbackStore.subscribe((data)=>feedback=data)
 
 
-  onMount(()=>{
-    console.log('mounted')
-  })
+  // onMount(()=>{
+  //   console.log('mounted')
+  // })
 
-  onDestroy(()=>{
-    unsubscribe()
-  })
+  // onDestroy(()=>{
+  //   unsubscribe()
+  // })
 
 </script>
 
 
-{#each feedback as feed (feed.id)}
+{#each $FeedbackStore as feed (feed.id)}
 <div in:scale out:fade="{{duration:500}}">
-    <FeedbackItem listItem={feed} on:delete-feedback />
+    <FeedbackItem listItem={feed}  />
   </div>
 {/each}
