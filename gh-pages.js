@@ -1,13 +1,13 @@
 var ghpages = require('gh-pages');
 
 ghpages.publish(
-  'public', // path to public directory
+  'public',
   {
-    branch: 'main',
+    branch: 'gh-pages',
     repo: 'https://github.com/shravankumar-fs/svelte-feedback-app.git', // Update to point to your repository
     user: {
-      name: 'Shravan kumar', // update to use your name
-      email: 'star.dragon.king.fd@gmail.com', // Update to use your email
+      name: 'Shravan kumar',
+      email: 'star.dragon.king.fd@gmail.com',
     },
   },
   () => {
